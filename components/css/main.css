@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Font: Manrope ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-manrope), 'Manrope', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Light mode base */
+    background-color: #fcf8fb;
+    color: #1c1b1d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode base */
+  .dark body {
+    background-color: #0f0c14;
+    color: #e8e0eb;
+  }
+
+  /* Selection colours */
+  ::selection {
+    background-color: #f2d7f8;
+    color: #310f26;
+  }
+
+  .dark ::selection {
+    background-color: #4a3758;
+    color: #f2d7f8;
+  }
+}
+
+@layer utilities {
+  /* ── Elevation / Shadow ───────────────────────── */
+  .sacred-shadow {
+    box-shadow: 0 8px 32px rgba(28, 27, 29, 0.04);
+  }
+
+  .dark .sacred-shadow {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .sacred-shadow-md {
+    box-shadow: 0 16px 48px rgba(28, 27, 29, 0.06);
+  }
+
+  /* ── Brand Gradients ─────────────────────────── */
+  .soul-gradient {
+    background: linear-gradient(135deg, #6c5773 0%, #310f26 100%);
+  }
+
+  .dark .soul-gradient {
+    background: linear-gradient(135deg, #4a3758 0%, #1e0d1a 100%);
+  }
+
+  /* ── Glassmorphism ─────────────────────────────── */
+  .glass-surface {
+    background: rgba(252, 248, 251, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .dark .glass-surface {
+    background: rgba(15, 12, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* ── Nav Active Pink Underline ──────────────────── */
+  .nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    border-radius: 9999px;
+    background-color: #be185d; /* pink-700 */
+  }
+
+  .dark .nav-link-active::after {
+    background-color: #f9a8d4; /* pink-300 */
+  }
+
+  /* ── Section Transitions ──────────────────────── */
+  section {
+    transition: background-color 0.3s ease;
+  }
+
+  /* ── Ghost border helper ───────────────────────── */
+  .ghost-border {
+    border: 1px solid rgba(210, 194, 201, 0.15);
+  }
+
+  .dark .ghost-border {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
