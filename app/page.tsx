@@ -278,27 +278,30 @@ export default function HomePage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-[1220px] flex-col overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#6c5773_0%,#310f26_100%)] text-white md:flex-row">
           <div className="flex-1 p-8 sm:p-12 lg:p-16">
+            <div className="mb-14">
             <div className="inline-flex rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
               Limited Time Resource
             </div>
             <h2 className="mt-7 text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
-              The Modern Curator’s
+              The 40 Days Prayer
               <br />
-              <span className="font-light italic">Handbook for Prayer</span>
+              <span className="font-light italic">Challenge Handbook</span>
             </h2>
             <p className="mt-6 max-w-[430px] text-[16px] leading-6 text-[#f4dafb]/85">
               A beautiful guide designed to help you create a meaningful prayer
               space, develop sustainable rhythms of intercession, and record the
               faithfulness of God with intention.
             </p>
-            <button className="mt-8 rounded-full bg-white px-6 py-3 text-m font-bold text-[#2c1324] transition-all duration-300 hover:bg-[#f2d7f8]">
+            </div>
+            <Link href={"/ebook"}  className="mt-15 rounded-full bg-white/80 px-6 py-3 text-m font-bold text-[#2c1324] transition-all duration-300 hover:text-[#f2d7f8] hover:bg-[#2c1324]">
               Download Free Ebook
-            </button>
+            </Link>
           </div>
 
           <div className="flex flex-1 items-center justify-center p-8 sm:p-12">
-            <div className="flex h-[360px] w-[250px] items-center justify-center rounded-r-[22px] border border-white/20 bg-white/10 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-sm">
-              <div className="flex h-full w-full flex-col justify-between rounded-r-[16px] border border-white/25 p-6 text-center">
+            <div className="flex h-[420px] w-[300px] overflow-hidden items-center justify-center rounded-r-[22px] border-2 border-white/20 bg-white/10 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-sm">
+            <Image src='/images/Siz lets Praye-2.png' alt='Ebook cover' fill  className="object-cover rounded-[0px]" />
+              {/*<div className="flex h-full w-full flex-col justify-between rounded-r-[16px] border border-white/25 p-6 text-center">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-white/60">
                   Siz Lets Pray
                 </p>
@@ -313,7 +316,7 @@ export default function HomePage() {
                 <p className="text-[10px] italic text-white/75">
                   Cultivating Stillness in the Chaos
                 </p>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>
@@ -404,7 +407,7 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="max-w-[170px] text-xs italic leading-6 text-[#5f5459] dark:text-[#cabecf]">
-                “Finally found a sisterhood that truly prays with me.”
+                “Finally found a sisterhood that truly prays for me.”
               </p>
               <p className="mt-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#7d516b] dark:text-[#d8bedf]">
                 Maya R.
