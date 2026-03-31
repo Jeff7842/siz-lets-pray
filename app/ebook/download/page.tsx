@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import AutoDownload from "@/components/ebook/AutoDownload";
 
 export default async function EbookDownloadPage({
   searchParams,
@@ -15,6 +16,7 @@ if (!token) {
 
   return (
     <main className="min-h-screen bg-[#fcf8fb] text-[#1c1b1d] dark:bg-[#120d13] dark:text-[#fcf8fb]">
+      
       <div className="px-4 pt-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1220px]">
           <section className="grid gap-16 pt-20 lg:grid-cols-2 lg:items-center">
@@ -29,16 +31,16 @@ if (!token) {
               </h1>
 
               <p className="mt-8 max-w-[560px] text-[22px] leading-10 text-[#5f5459] dark:text-[#cabecf]">
-                Your download has started. If not, click below to begin your journey into a deeper, more intentional faith.
+                Your download has started. If not, click <a
+  href={`/api/ebook/file?token=${encodeURIComponent(token)}`}
+  className="hover:text-[#6c5773] hover:font-bold underline text-[#310f26] dark:text-[#d8bedf] dark:hover:text-[#6c5773]">
+  Here
+</a> to begin your journey into a deeper, more intentional faith.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-  href={`/api/ebook/file?token=${encodeURIComponent(token)}`}
-  className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#6c5773_0%,#310f26_100%)] px-8 py-4 text-base font-bold text-white shadow-[0_16px_40px_rgba(49,15,38,0.18)] transition-all duration-300 hover:scale-[1.02] hover:opacity-95"
->
-  Download Now
-</a>
+                
+<AutoDownload token={token} />
                 <button className="inline-flex items-center justify-center rounded-full bg-[#ebe7ea] px-8 py-4 text-base font-bold text-[#1c1b1d] transition-all duration-300 hover:bg-[#e5e1e4] dark:bg-[#2b222d] dark:text-[#f5edf7] dark:hover:bg-[#352937]">
                   Print Copy Info
                 </button>
@@ -47,8 +49,8 @@ if (!token) {
               <div className="mt-10 border-t border-[#ebe2e7] pt-6 dark:border-[#241d24]">
                 <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-[#5f5459] dark:text-[#cabecf]">Included in your pursuit:</p>
                 <div className="mt-4 flex flex-wrap gap-6 text-sm font-bold text-[#2c1324] dark:text-[#fcf8fb]">
-                  <span>124 Pages</span>
-                  <span>Weekly Devotions</span>
+                  <span>60 Pages</span>
+                  <span>Daily Devotions</span>
                   <span>Guided Journaling</span>
                 </div>
               </div>
@@ -58,7 +60,7 @@ if (!token) {
               <div className="absolute -left-12 -top-10 h-60 w-60 rounded-full bg-[#f2d7f8]/50 blur-3xl dark:bg-[#6c5773]/20" />
               <div className="relative rounded-[34px] bg-white p-3 shadow-[0_24px_60px_rgba(49,15,38,0.12)] dark:bg-[#171217]">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-[#183a42]">
-                  <Image src="/images/ebook-cover.png" alt="Ebook cover" fill sizes="(max-width: 1024px) 100vw, 520px" className="object-cover" />
+                  <Image src="/images/Siz lets Praye-2.png" alt="Ebook cover" fill sizes="(max-width: 1024px) 100vw, 520px" className="object-cover" />
                 </div>
               </div>
             </div>
@@ -87,8 +89,8 @@ if (!token) {
                     Explore the Community →
                   </Link>
                 </div>
-                <div className="relative h-[200px] overflow-hidden rounded-[20px] md:w-[240px]">
-                  <Image src="/images/community-2.png" alt="Community" fill sizes="240px" className="object-cover" />
+                <div className="relative h-[240px]  rounded-[20px] md:w-[240px]">
+                  <Image src="/logos/icon-lilac1000.png" alt="Community" fill sizes="240px" className="object-cover" />
                 </div>
               </div>
 

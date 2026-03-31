@@ -4,14 +4,9 @@ export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
   if (pathname === "/ebook/download") {
-    const file = searchParams.get("file");
-    const email = searchParams.get("email");
+    const token = searchParams.get("token");
 
-    if (!email) {
-      return NextResponse.redirect(new URL("/403", request.url));
-    }
-
-    if (file && !file.startsWith("https://")) {
+    if (!token) {
       return NextResponse.redirect(new URL("/403", request.url));
     }
   }
