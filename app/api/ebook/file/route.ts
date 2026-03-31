@@ -51,6 +51,7 @@ export async function GET(request: Request) {
         Expires: "0",
       },
     });
+    
   } catch (error) {
     console.error("EBOOK FILE ERROR:", error);
 
