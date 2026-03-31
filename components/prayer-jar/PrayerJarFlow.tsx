@@ -844,6 +844,7 @@ export default function PrayerJarFlow({ mode }: { mode: FlowMode }) {
                         "Peace",
                         "Guidance",
                         "Breakthrough",
+                        "Other",
                       ].map((theme) => {
                         const active = testimonyTheme === theme;
 
