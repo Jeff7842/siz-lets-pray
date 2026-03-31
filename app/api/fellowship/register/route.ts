@@ -38,6 +38,7 @@ export async function POST(request: Request) {
 
     const from = process.env.RESEND_FROM_WELCOME_EMAIL;
     const adminEmail = process.env.FELLOWSHIP_ADMIN_EMAIL;
+    const fellowshipWebhook = process.env.GOOGLE_SHEETS_FELLOWSHIP_WEBHOOK_URL;
 
     if (!from) {
       return NextResponse.json(
@@ -147,6 +148,22 @@ export async function POST(request: Request) {
         `,
       }),
     ]);
+
+    if (fellowshipWebhook) {
+      await fetch(fellowshipWebhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          createdAt: new Date().toISOString(),
+          sourcePage: "join-fellowship-page",
+          fullName,
+          phoneNumber,
+          email,
+          consented,
+        }),
+        cache: "no-store",
+      }).catch(() => null);
+    }
 
     return NextResponse.json({ ok: true });
   } catch {

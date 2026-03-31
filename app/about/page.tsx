@@ -264,10 +264,12 @@ export default function AboutPage() {
                     Vision bearer
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">
-                    Charity Sifa is presented in the PDF as the vision bearer.
-                    The ministry story is framed personally, spiritually, and in
-                    continuity with Her Pursuit.
-                  </p>
+  Charity Sifa, the vision bearer, carries the heart behind Her Pursuit with a
+  clear desire to see young women seek the face of the Lord deeply and
+  intentionally in their singlehood. Her journey reflects leadership, worship,
+  and a life being shaped in public and private by devotion to Christ, which
+  continues to influence the vision and direction of this ministry.
+</p>
                 </div>
               </div>
             </div>
