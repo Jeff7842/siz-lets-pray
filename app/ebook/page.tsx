@@ -6,24 +6,24 @@ import { Icon } from "@iconify/react";
 
 const learnItems = [
   {
-    title: "Intentional Filtering",
-    text: "Master the art of choosing what enters your heart, home, and mind based on gospel principles.",
-    icon: "solar:stars-bold",
+    title: "How to Build a Prayer Rhythm",
+    text: "Learn a practical daily structure for one hour of prayer, thanksgiving, scripture, declarations, and personal intercession.",
+    icon: "solar:alarm-bold",
   },
   {
-    title: "Graceful Routines",
-    text: "Build daily rhythms that foster intellectual growth and spiritual depth without burnout.",
-    icon: "solar:document-text-bold",
+    title: "Wisdom for the Waiting Season",
+    text: "Walk through Proverbs and gain wisdom, clarity, discipline, and direction while trusting God for your next opportunity.",
+    icon: "solar:book-bold",
   },
   {
-    title: "Premium Stewardship",
-    text: "Learn to value quality over quantity in every aspect of your life, from media to relationships.",
-    icon: "solar:diamond-bold",
-  },
-  {
-    title: "The Scholar’s Mindset",
-    text: "Develop a critical yet compassionate eye for modern culture through a theological lens.",
+    title: "Faith, Favor, and Breakthrough",
+    text: "Strengthen your faith through targeted prayers on identity, open doors, divine favor, spiritual warfare, and breakthrough.",
     icon: "solar:shield-star-bold",
+  },
+  {
+    title: "Reflection and Action",
+    text: "Use guided reflection and action points to track what God is teaching you, what you are surrendering, and how you are growing.",
+    icon: "solar:notes-bold",
   },
 ];
 
@@ -50,42 +50,42 @@ export default function EbookPage() {
             </h1>
 
             <p className="mt-6 max-w-[620px] text-[28px] italic leading-[1.5] text-[#6c5773] dark:text-[#d8bedf]">
-              Cultivating a life of purpose, grace, and gospel-centered intentionality in the digital age.
-            </p>
+  A 40-day prayer journey for women trusting God for jobs, clarity, favor, and open doors.
+</p>
 
-            <div className="mt-8 max-w-[700px] space-y-6 text-[17px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
-              <p>
-                In an era defined by endless noise and digital clutter, the art of curation has never been more vital. For the woman of faith, curation is not just about aesthetics, it is about stewardship.
-              </p>
-              <p>
-                This handbook bridges ancient biblical wisdom with modern living and gives you a framework to filter the world and focus on what truly matters.
-              </p>
-            </div>
+<div className="mt-8 max-w-[700px] space-y-6 text-[17px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
+  <p>
+    This ebook is a guided prayer challenge created for women who are waiting on God for employment and choosing to seek Him with faith instead of fear. It walks you through daily prayer, scripture, declarations, reflection, and action as you press into God’s presence.
+  </p>
+  <p>
+    Across six structured stages, the challenge focuses on wisdom, identity, spiritual warfare, breakthrough, harvest, and receiving the promise, with Proverbs serving as a core foundation for the journey.
+  </p>
+</div>
 
-            <div className="mt-14">
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#1f151a] dark:text-[#fcf8fb]">
-                What you’ll learn
-              </h2>
-              <div className="mt-8 grid gap-5 md:grid-cols-2">
-                {learnItems.map((item, index) => (
-                  <div
-                    key={item.title}
-                    className={`rounded-[26px] bg-[#f6f2f5] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(28,27,29,0.06)] dark:bg-[#181218] ${index % 2 === 1 ? "md:translate-y-6" : ""}`}
-                  >
-                    <Icon icon={item.icon} className="h-5 w-5 text-[#2c1324] dark:text-[#f2d7f8]" />
-                    <h3 className="mt-5 text-lg font-semibold text-[#2c1324] dark:text-[#fcf8fb]">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+<div className="mt-14">
+  <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#1f151a] dark:text-[#fcf8fb]">
+    What you’ll learn
+  </h2>
+  <div className="mt-8 grid gap-5 md:grid-cols-2">
+    {learnItems.map((item, index) => (
+      <div
+        key={item.title}
+        className={`rounded-[26px] bg-[#f6f2f5] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(28,27,29,0.06)] dark:bg-[#181218] ${index % 2 === 1 ? "md:translate-y-6" : ""}`}
+      >
+        <Icon icon={item.icon} className="h-5 w-5 text-[#2c1324] dark:text-[#f2d7f8]" />
+        <h3 className="mt-5 text-lg font-semibold text-[#2c1324] dark:text-[#fcf8fb]">{item.title}</h3>
+        <p className="mt-3 text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">{item.text}</p>
+      </div>
+    ))}
+  </div>
+</div>
 
-            <div className="mt-16 rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(28,27,29,0.05)] dark:bg-[#171217]">
-              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">Who this book is for</h3>
-              <p className="mt-4 text-[28px] italic leading-[1.6] text-[#4d3946] dark:text-[#f4eaf7]">
-                “This handbook is for the woman who feels the weight of the digital world and seeks a higher way. It is for the thinker, the dreamer, and the disciple who believes excellence and elegance can be expressions of worship.”
-              </p>
-            </div>
+<div className="mt-16 rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(28,27,29,0.05)] dark:bg-[#171217]">
+  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">Who this book is for</h3>
+  <p className="mt-4 text-[28px] italic leading-[1.6] text-[#4d3946] dark:text-[#f4eaf7]">
+    “This prayer challenge is for the woman who is trusting God for a job, refusing to quit, and choosing to seek Him deeply in the waiting. It is for the woman who wants her mornings anchored in prayer, her mind grounded in scripture, and her heart strengthened for breakthrough, favor, and testimony.”
+  </p>
+</div>
 
             <div className="mt-12 flex flex-wrap items-center gap-4">
               <Link
