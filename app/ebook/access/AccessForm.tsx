@@ -86,7 +86,7 @@ export default function AccessForm() {
             : "bg-[linear-gradient(135deg,#6c5773_0%,#310f26_100%)] text-white shadow-[0_16px_40px_rgba(49,15,38,0.18)] hover:scale-[1.01] hover:opacity-95"
         }`}
       >
-        <span>{loading ? "Securing your access..." : "Verify and Secure My Ebook"}</span>
+        <span>{loading ? "Securing your access..." : "Verify My Email"}</span>
         <Icon icon="solar:arrow-right-linear" className="h-5 w-5" />
       </button>
     </form>
