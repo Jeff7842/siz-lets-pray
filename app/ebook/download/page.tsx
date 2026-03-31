@@ -94,7 +94,7 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="rounded-[28px] bg-[#310f26] p-8 text-white">
+              <div className="hidden rounded-[28px] bg-[#310f26] p-8 text-white">
                 <h3 className="text-3xl font-semibold tracking-[-0.03em]">30-Day Guided Plan</h3>
                 <p className="mt-4 text-[16px] leading-8 text-[#f4dafb]/82">
                   Pair your ebook with our digital planner for maximum spiritual growth.

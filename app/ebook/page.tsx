@@ -50,7 +50,7 @@ export default function EbookPage() {
             </h1>
 
             <p className="mt-6 max-w-[620px] text-[28px] italic leading-[1.5] text-[#6c5773] dark:text-[#d8bedf]">
-  A 40-day prayer journey for women trusting God for jobs, clarity, favor, and open doors.
+  A 40 day prayer journey for women trusting God for jobs, clarity, favor, and open doors.
 </p>
 
 <div className="mt-8 max-w-[700px] space-y-6 text-[17px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
@@ -83,7 +83,7 @@ export default function EbookPage() {
 <div className="mt-16 rounded-[28px] bg-white p-8 shadow-[0_10px_30px_rgba(28,27,29,0.05)] dark:bg-[#171217]">
   <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">Who this book is for</h3>
   <p className="mt-4 text-[28px] italic leading-[1.6] text-[#4d3946] dark:text-[#f4eaf7]">
-    “This prayer challenge is for the woman who is trusting God for a job, refusing to quit, and choosing to seek Him deeply in the waiting. It is for the woman who wants her mornings anchored in prayer, her mind grounded in scripture, and her heart strengthened for breakthrough, favor, and testimony.”
+    “This prayer challenge is for the woman who is trusting God for a job, refusing to quit, and choosing to seek Him deeply in the waiting.”
   </p>
 </div>
 

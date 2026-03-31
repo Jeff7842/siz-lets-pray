@@ -29,7 +29,7 @@ export default async function CheckEmailPage({
 
             <div className="mt-7 rounded-[24px] border-l-[3px] border-[#2c1324] bg-[#f3eff2] p-6 dark:border-[#d8bedf] dark:bg-[#1a151a]">
               <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-[#5f5459] dark:text-[#cabecf]">Sent To</p>
-              <p className="mt-2 text-[24px] text-[#2c1324] dark:text-[#fcf8fb]">{email || "your@email.com"}</p>
+              <p className="mt-2 text-[20px] text-[#2c1324] dark:text-[#fcf8fb]">{email || "your@email.com"}</p>
             </div>
 
             <p className="mt-6 max-w-[540px] text-[18px] leading-8 text-[#6b6066] dark:text-[#bbaebd]">

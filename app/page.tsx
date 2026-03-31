@@ -84,7 +84,11 @@ export default function HomePage() {
                 <span className="mr-4">Join the Fellowship</span>
                 <Icon icon="solar:arrow-right-linear" className="h-4 w-4" />
               </PrimaryButton>
-              <SecondaryButton>Get the Ebook</SecondaryButton>
+              <SecondaryButton 
+              
+              ><Link href='/ebook' target="_blank">
+                Get the Ebook
+              </Link></SecondaryButton>
             </div>
           </div>
 
@@ -170,7 +174,7 @@ export default function HomePage() {
               siz lets pray?
             </h2>
             <p className="mt-6 max-w-[620px] text-[16px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
-              Born from Her Pursuit, siz lets pray is more than a brand. It is
+              Born from Her Pursuit, siz lets pray is more than a title. It is
               a digital sanctuary for women who desire to grow deeper in their
               prayer lives. We bridge the distance between modern routines and
               spiritual stillness by creating a space for community,
@@ -179,8 +183,7 @@ export default function HomePage() {
 
             <div className="mt-7 border-l-4 border-[#e5bbd2] pl-5 dark:border-[#6c5773]">
               <p className="text-[16px] italic leading-8 text-[#7d516b] dark:text-[#e5bbd2]">
-                “We aren’t just an app or a website, we are a heartbeat of
-                intercession for the modern woman.”
+                “Luke 18:1 - And he spake a parable unto them to this end, that men ought always to pray, and not to faint”
               </p>
             </div>
           </div>
@@ -191,7 +194,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1220px]">
           <SectionTitle
             title="Our Mission & Values"
-            description="Rooted in truth, blooming in grace."
+            description="Singular in pursuit of Christ."
           />
 
           <div className="grid gap-5 md:grid-cols-3">
@@ -288,9 +291,9 @@ export default function HomePage() {
               <span className="font-light italic">Challenge Handbook</span>
             </h2>
             <p className="mt-6 max-w-[430px] text-[16px] leading-6 text-[#f4dafb]/85">
-              A beautiful guide designed to help you create a meaningful prayer
-              space, develop sustainable rhythms of intercession, and record the
-              faithfulness of God with intention.
+              A 40 day prayer guide created for women trusting God for jobs, 
+              helping you build consistent prayer rhythms, grow through scripture and fasting, 
+              and reflect on God’s guidance, favor, and faithfulness along the journey.
             </p>
             </div>
             <Link href={"/ebook"}  className="mt-15 rounded-full bg-white/80 px-6 py-3 text-m font-bold text-[#2c1324] transition-all duration-300 hover:text-[#f2d7f8] hover:bg-[#2c1324]">
@@ -425,19 +428,19 @@ export default function HomePage() {
               {
                 quote:
                   "Joining siz lets pray changed my perspective on communion with God. It became a cherished conversation.",
-                name: "Sarah Jenkins",
+                name: "Sarah Wanjiru",
                 initial: "S",
               },
               {
                 quote:
                   "The sisterhood here is authentic. I found women who don’t just promise prayer, but actually stop and pray.",
-                name: "Laila Makena",
-                initial: "L",
+                name: "Emmah Muthoni",
+                initial: "E",
               },
               {
                 quote:
                   "The resources and the handbook helped me build a prayer routine that lasts beyond Sunday morning.",
-                name: "Martha Obiero",
+                name: "Martha Olivia",
                 initial: "M",
               },
             ].map((item) => (
@@ -481,7 +484,9 @@ export default function HomePage() {
             <button className="rounded-full bg-[#2c1324] px-7 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-[#471f39] dark:bg-[#f2d7f8] dark:text-[#2c1324] dark:hover:bg-[#e7c5ef]">
               Join the Community
             </button>
-            <button className="rounded-full border border-[#7d516b] px-7 py-3 text-sm font-bold text-[#7d516b] transition-all duration-300 hover:bg-[#f2d7f8] dark:border-[#d8bedf] dark:text-[#e5bbd2] dark:hover:bg-[#2a1b2d]">
+            <button 
+            onClick={() => window.open('/ebook', '_blank')} 
+              className="rounded-full border border-[#7d516b] px-7 py-3 text-sm font-bold text-[#7d516b] transition-all duration-300 hover:bg-[#f2d7f8] dark:border-[#d8bedf] dark:text-[#e5bbd2] dark:hover:bg-[#2a1b2d]">
               Download Free Ebook
             </button>
           </div>

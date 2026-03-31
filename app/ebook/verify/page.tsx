@@ -79,7 +79,7 @@ export default async function VerifyPage({
               </div>
               <h1 className="mt-5 text-6xl font-semibold leading-[0.94] tracking-[-0.05em] text-[#2c1324] dark:text-[#fcf8fb]">Email Verified!</h1>
               <p className="mt-6 max-w-[560px] text-[24px] italic leading-10 text-[#5f5459] dark:text-[#cabecf]">
-                “The truth has been confirmed. You are now ready to pursue your spiritual journey with clarity and focus.”
+                “Your email has been confirmed. You are now ready to pursue your spiritual journey with clarity and focus.”
               </p>
               <Link
                 href={`/ebook/download?token=${encodeURIComponent(result.downloadToken!)}`}

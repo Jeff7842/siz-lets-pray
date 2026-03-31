@@ -53,42 +53,198 @@ function getInitialPrayerPoints(): PrayerPoint[] {
   return [{ id: uid(), value: "" }];
 }
 
-function PrayerSidePanel() {
+function PrayerPrivacyCard() {
   return (
-    <div className="space-y-8">
-      <div className="rounded-[28px] bg-[#f6f2f5] p-8 dark:bg-[#181218]">
-        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#f2d7f8] text-[#7d516b] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]">
-          <Icon icon="solar:shield-check-bold" className="h-6 w-6" />
-        </div>
+    <div className="rounded-[28px] bg-[#f6f2f5] p-8 dark:bg-[#181218]">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#f2d7f8] text-[#7d516b] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]">
+        <Icon icon="solar:shield-check-bold" className="h-6 w-6" />
+      </div>
 
-        <h3 className="text-[32px] font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">
-          Privacy & Anonymity
-        </h3>
+      <h3 className="text-[32px] font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">
+        Privacy & Anonymity
+      </h3>
 
-        <p className="mt-4 text-[15px] leading-8 text-[#645961] dark:text-[#cabecf]">
-          We prioritize spiritual safety. Prayer requests stay discreet, names are never shown publicly, and email is only for submission tracking and ministry follow-up where needed.
+      <p className="mt-4 text-[15px] leading-8 text-[#645961] dark:text-[#cabecf]">
+        We prioritize spiritual safety. Prayer requests stay discreet, names are never shown publicly, and email is only for submission tracking and ministry follow-up where needed.
+      </p>
+
+      <div className="mt-6 rounded-[18px] bg-white px-5 py-4 text-sm leading-7 text-[#5f5459] shadow-[0_10px_22px_rgba(28,27,29,0.04)] dark:bg-[#171217] dark:text-[#cabecf]">
+        Your identity is stored privately. The intercession team sees only what is needed to pray well and respond responsibly.
+      </div>
+    </div>
+  );
+}
+
+function PrayerImageCard() {
+  return (
+    <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] shadow-[0_16px_34px_rgba(28,27,29,0.08)]">
+      <Image
+        src="/images/screen.png"
+        alt="Prayer reflection"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(49,15,38,0.02)_0%,rgba(49,15,38,0.82)_100%)]" />
+      <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+        <p className="text-[18px] italic leading-9">
+          "For where two or three are gathered together in my name, there am I in the midst of them."
         </p>
-
-        <div className="mt-6 rounded-[18px] bg-white px-5 py-4 text-sm leading-7 text-[#5f5459] shadow-[0_10px_22px_rgba(28,27,29,0.04)] dark:bg-[#171217] dark:text-[#cabecf]">
-          Your identity is stored privately. The intercession team sees only what is needed to pray well and respond responsibly.
-        </div>
+        <p className="mt-2 text-sm text-white/70">— Matthew 18:20</p>
       </div>
+    </div>
+  );
+}
 
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] shadow-[0_16px_34px_rgba(28,27,29,0.08)]">
-        <Image
-          src="/images/screen.png"
-          alt="Prayer reflection"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(49,15,38,0.02)_0%,rgba(49,15,38,0.82)_100%)]" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <p className="text-[18px] italic leading-9">
-            "For where two or three are gathered together in my name, there am I in the midst of them."
-          </p>
-          <p className="mt-2 text-sm text-white/70">— Matthew 18:20</p>
+function PrayerFormCard({
+  handlePrayerSubmit,
+  prayerPoints,
+  updatePrayerPoint,
+  removePrayerPoint,
+  addPrayerPoint,
+  prayerFirstName,
+  setPrayerFirstName,
+  prayerEmail,
+  setPrayerEmail,
+  prayerConsent,
+  setPrayerConsent,
+  prayerDisabled,
+  submitting,
+}: {
+  handlePrayerSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  prayerPoints: PrayerPoint[];
+  updatePrayerPoint: (id: string, value: string) => void;
+  removePrayerPoint: (id: string) => void;
+  addPrayerPoint: () => void;
+  prayerFirstName: string;
+  setPrayerFirstName: React.Dispatch<React.SetStateAction<string>>;
+  prayerEmail: string;
+  setPrayerEmail: React.Dispatch<React.SetStateAction<string>>;
+  prayerConsent: boolean;
+  setPrayerConsent: React.Dispatch<React.SetStateAction<boolean>>;
+  prayerDisabled: boolean;
+  submitting: boolean;
+}) {
+  return (
+    <div className="rounded-[30px] bg-white p-8 shadow-[0_28px_60px_rgba(28,27,29,0.05)] dark:bg-[#171217] md:p-10">
+      <form onSubmit={handlePrayerSubmit} className="space-y-8">
+        <div>
+          <label className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:text-[#d8bedf]">
+            <Icon icon="solar:stars-bold" className="h-7 w-7" />
+            <span className="text-lg">Your Requests (Max 10)</span>
+          </label>
+
+          <div className="mt-6 space-y-4">
+            {prayerPoints.map((point, index) => (
+              <div key={point.id} className="flex items-start gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ebe7ea] text-sm font-bold text-[#7d516b] dark:bg-[#221c23] dark:text-[#e5bbd2]">
+                  {index + 1}
+                </div>
+
+                <div className="flex-1">
+                  <textarea
+                    rows={2}
+                    value={point.value}
+                    onChange={(e) =>
+                      updatePrayerPoint(point.id, e.target.value)
+                    }
+                    placeholder="What can we lift up for you today?"
+                    className="min-h-[78px] w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  disabled={prayerPoints.length === 1}
+                  onClick={() => removePrayerPoint(point.id)}
+                  className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                    prayerPoints.length === 1
+                      ? "cursor-not-allowed bg-[#ebe7ea] text-[#b4a9b0] dark:bg-[#221c23] dark:text-[#4a424c]"
+                      : "bg-[#f8e6ea] text-[#9b4355] hover:bg-[#f1d8de] dark:bg-[#331b22] dark:text-[#ffbcc8]"
+                  }`}
+                >
+                  <Icon
+                    icon="solar:trash-bin-trash-linear"
+                    className="h-5 w-5"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex justify-end">
+            <button
+              type="button"
+              onClick={addPrayerPoint}
+              disabled={prayerPoints.length >= 10}
+              className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all ${
+                prayerPoints.length >= 10
+                  ? "cursor-not-allowed bg-[#ebe7ea] text-[#b4a9b0] dark:bg-[#221c23] dark:text-[#4a424c]"
+                  : "bg-[#f2d7f8] text-[#705b77] hover:scale-[1.02] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]"
+              }`}
+            >
+              <Icon icon="solar:add-circle-bold" className="h-5 w-5" />
+              <span>Add Another Prayer</span>
+            </button>
+          </div>
         </div>
-      </div>
+
+        <div className="h-px bg-[#f0e7eb] dark:bg-white/5" />
+
+        <div>
+          <label className="block text-[12px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:text-[#d8bedf]">
+            Contact Details
+          </label>
+
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <input
+              value={prayerFirstName}
+              onChange={(e) => setPrayerFirstName(e.target.value)}
+              placeholder="First Name (Optional)"
+              className="w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
+            />
+
+            <input
+              type="email"
+              value={prayerEmail}
+              onChange={(e) => setPrayerEmail(e.target.value)}
+              placeholder="Email Address"
+              className="w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
+              required
+            />
+          </div>
+        </div>
+
+        <label className="flex items-start gap-4 rounded-[20px] p-1 text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">
+          <input
+            type="checkbox"
+            checked={prayerConsent}
+            onChange={(e) => setPrayerConsent(e.target.checked)}
+            className="mt-1 h-5 w-5 rounded border-[#caa9b7] text-[#310f26] focus:ring-[#7d516b] dark:border-[#6c5773] dark:bg-[#120d13]"
+          />
+          <span>
+            I understand my prayer will be shared with the intercession team anonymously. I consent to receiving a follow-up email if necessary.
+          </span>
+        </label>
+
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <button
+            type="submit"
+            disabled={prayerDisabled}
+            className={`inline-flex w-full items-center justify-center rounded-full px-7 py-5 text-lg font-bold ${gradientButtonClass(
+              prayerDisabled
+            )}`}
+          >
+            {submitting ? "Submitting Prayer..." : "Submit My Prayer"}
+          </button>
+
+          <Link
+            href="/prayer-jar"
+            className="inline-flex items-center justify-center rounded-full bg-[#ebe7ea] px-7 py-5 text-sm font-bold text-[#2c1324] transition-colors hover:bg-[#e2dde1] dark:bg-[#251d26] dark:text-[#fcf8fb]"
+          >
+            Back
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }
@@ -150,56 +306,84 @@ function SuccessModal({ onClose }: SuccessModalProps) {
       className="fixed inset-0 z-[80] flex items-center justify-center bg-[#2c1324]/35 px-4 backdrop-blur-sm"
     >
       <motion.div
-        initial={{ opacity: 0, y: 22, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 12, scale: 0.98 }}
-        transition={{ duration: 0.28 }}
-        className="relative w-full max-w-[1040px] overflow-hidden rounded-[36px] border border-white/30 bg-[#fcf8fb] p-5 shadow-[0_24px_80px_rgba(28,27,29,0.18)] dark:border-white/5 dark:bg-[#130d14]"
+  initial={{ opacity: 0, y: 22, scale: 0.96 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  exit={{ opacity: 0, y: 12, scale: 0.98 }}
+  transition={{ duration: 0.28 }}
+  className="relative w-full max-w-[1040px]"
+>
+  {/* Mobile only */}
+  <div className="block sm:hidden">
+    <div className="relative overflow-hidden rounded-[30px] border border-[#eadfe5] bg-white p-8 text-center shadow-[0_24px_80px_rgba(28,27,29,0.18)] dark:border-white/5 dark:bg-[#130f14]">
+      <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-[#f2d7f8] text-[#310f26] dark:bg-[#2a1b2d] dark:text-[#f2d7f8]">
+        <div className="absolute h-20 w-20 animate-ping rounded-full bg-[#f2d7f8]/35 dark:bg-[#6c5773]/20" />
+        <Icon icon="solar:check-circle-bold" className="relative h-10 w-10" />
+      </div>
+
+      <h3 className="text-3xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">
+        Submission Received!
+      </h3>
+
+      <p className="mx-auto mt-4 max-w-xl text-[16px] italic leading-8 text-[#5f5459] dark:text-[#cabecf]">
+        “May God hear your prayer and witness your testimony. Our team is standing in faith with you.”
+      </p>
+
+      <button
+        onClick={onClose}
+        className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ebe7ea] px-8 py-3 font-bold text-[#2c1324] transition-colors hover:bg-[#e2dde1] dark:bg-[#251d26] dark:text-[#fcf8fb]"
       >
-        <div className="rounded-[30px] bg-[#f8f4f7] p-6 sm:p-8 dark:bg-[#181218]">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-[#f2d7f8] px-5 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]">
-              System States
-            </span>
+        <span>Close Window</span>
+        <Icon icon="solar:close-circle-linear" className="h-4 w-4" />
+      </button>
+    </div>
+  </div>
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-[-0.03em] text-[#310f26] sm:text-5xl dark:text-[#fcf8fb]">
-              Shared Submission Journeys
-            </h2>
+  {/* Desktop and tablet */}
+  <div className="hidden overflow-hidden rounded-[36px] border border-white/30 bg-[#fcf8fb] p-5 shadow-[0_24px_80px_rgba(28,27,29,0.18)] dark:border-white/5 dark:bg-[#130d14] sm:block">
+    <div className="rounded-[30px] bg-[#f8f4f7] p-6 sm:p-8 dark:bg-[#181218]">
+      <div className="mx-auto mb-12 max-w-3xl text-center">
+        <span className="inline-flex rounded-full bg-[#f2d7f8] px-5 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]">
+          System States
+        </span>
 
-            <p className="mx-auto mt-4 max-w-2xl text-[17px] leading-8 text-[#645961] dark:text-[#cabecf]">
-              Your submission has been received well. This flow keeps the experience calm, clear, and consistent.
-            </p>
-          </div>
+        <h2 className="mt-6 text-4xl font-semibold tracking-[-0.03em] text-[#310f26] sm:text-5xl dark:text-[#fcf8fb]">
+          Shared Submission Journeys
+        </h2>
 
-          <div className="inline-flex align-middle items-center justify-center ml-30">
+        <p className="mx-auto mt-4 max-w-2xl text-[17px] leading-8 text-[#645961] dark:text-[#cabecf]">
+          Your submission has been received well. This flow keeps the experience calm, clear, and consistent.
+        </p>
+      </div>
 
-            <div className="space-y-6 lg:col-span-7">
-              <div className="relative overflow-hidden rounded-[30px] border border-[#eadfe5] bg-white p-8 text-center dark:border-white/5 dark:bg-[#130f14]">
-                <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-[#f2d7f8] text-[#310f26] dark:bg-[#2a1b2d] dark:text-[#f2d7f8]">
-                  <div className="absolute h-20 w-20 animate-ping rounded-full bg-[#f2d7f8]/35 dark:bg-[#6c5773]/20" />
-                  <Icon icon="solar:check-circle-bold" className="relative h-10 w-10" />
-                </div>
-
-                <h3 className="text-4xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">
-                  Submission Received!
-                </h3>
-
-                <p className="mx-auto mt-4 max-w-xl text-[18px] italic leading-8 text-[#5f5459] dark:text-[#cabecf]">
-                  “May God hear your prayer and witness your testimony. Our team is standing in faith with you.”
-                </p>
-
-                <button
-                  onClick={onClose}
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ebe7ea] px-8 py-3 font-bold text-[#2c1324] transition-colors hover:bg-[#e2dde1] dark:bg-[#251d26] dark:text-[#fcf8fb]"
-                >
-                  <span>Close Window</span>
-                  <Icon icon="solar:close-circle-linear" className="h-4 w-4" />
-                </button>
-              </div>
+      <div className="flex w-full items-center justify-center">
+        <div className="w-full max-w-xl">
+          <div className="relative overflow-hidden rounded-[30px] border border-[#eadfe5] bg-white p-8 text-center dark:border-white/5 dark:bg-[#130f14]">
+            <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-[#f2d7f8] text-[#310f26] dark:bg-[#2a1b2d] dark:text-[#f2d7f8]">
+              <div className="absolute h-20 w-20 animate-ping rounded-full bg-[#f2d7f8]/35 dark:bg-[#6c5773]/20" />
+              <Icon icon="solar:check-circle-bold" className="relative h-10 w-10" />
             </div>
+
+            <h3 className="text-4xl font-semibold tracking-[-0.03em] text-[#2c1324] dark:text-[#fcf8fb]">
+              Submission Received!
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-xl text-[18px] italic leading-8 text-[#5f5459] dark:text-[#cabecf]">
+              “May God hear your prayer and witness your testimony. Our team is standing in faith with you.”
+            </p>
+
+            <button
+              onClick={onClose}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#ebe7ea] px-8 py-3 font-bold text-[#2c1324] transition-colors hover:bg-[#e2dde1] dark:bg-[#251d26] dark:text-[#fcf8fb]"
+            >
+              <span>Close Window</span>
+              <Icon icon="solar:close-circle-linear" className="h-4 w-4" />
+            </button>
           </div>
         </div>
-      </motion.div>
+      </div>
+    </div>
+  </div>
+</motion.div>
     </motion.div>
   );
 }
@@ -538,7 +722,7 @@ export default function PrayerJarFlow({ mode }: { mode: FlowMode }) {
             </div>
 
             <h1 className="mt-7 text-5xl font-semibold leading-[0.98] tracking-[-0.05em] text-[#310f26] sm:text-6xl lg:text-7xl dark:text-[#fcf8fb]">
-              Submit Your Prayer Points
+              Submit Your Prayer Request
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-[18px] leading-9 text-[#6b5e66] dark:text-[#cabecf]">
@@ -546,135 +730,62 @@ export default function PrayerJarFlow({ mode }: { mode: FlowMode }) {
             </p>
           </header>
 
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <PrayerSidePanel />
-            </div>
+          <div className="space-y-10">
+  {/* Mobile: form immediately after hero */}
+  <div className="block lg:hidden">
+    <PrayerFormCard
+      handlePrayerSubmit={handlePrayerSubmit}
+      prayerPoints={prayerPoints}
+      updatePrayerPoint={updatePrayerPoint}
+      removePrayerPoint={removePrayerPoint}
+      addPrayerPoint={addPrayerPoint}
+      prayerFirstName={prayerFirstName}
+      setPrayerFirstName={setPrayerFirstName}
+      prayerEmail={prayerEmail}
+      setPrayerEmail={setPrayerEmail}
+      prayerConsent={prayerConsent}
+      setPrayerConsent={setPrayerConsent}
+      prayerDisabled={prayerDisabled}
+      submitting={submitting}
+    />
+  </div>
 
-            <div className="lg:col-span-8">
-              <div className="rounded-[30px] bg-white p-8 shadow-[0_28px_60px_rgba(28,27,29,0.05)] dark:bg-[#171217] md:p-10">
-                <form onSubmit={handlePrayerSubmit} className="space-y-8">
-                  <div>
-                    <label className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:text-[#d8bedf]">
-                      <Icon icon="solar:stars-bold" className="h-4 w-4" />
-                      <span>Your Requests (Max 10)</span>
-                    </label>
+  <div className="grid gap-12 lg:grid-cols-12">
+    {/* Side content */}
+    <div className="space-y-8 lg:col-span-4">
+      {/* Desktop order: privacy then image */}
+      <div className="hidden lg:block">
+        <PrayerPrivacyCard />
+      </div>
 
-                    <div className="mt-6 space-y-4">
-                      {prayerPoints.map((point, index) => (
-                        <div key={point.id} className="flex items-start gap-4">
-                          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ebe7ea] text-sm font-bold text-[#7d516b] dark:bg-[#221c23] dark:text-[#e5bbd2]">
-                            {index + 1}
-                          </div>
+      <PrayerImageCard />
 
-                          <div className="flex-1">
-                            <textarea
-                              rows={2}
-                              value={point.value}
-                              onChange={(e) =>
-                                updatePrayerPoint(point.id, e.target.value)
-                              }
-                              placeholder="What can we lift up for you today?"
-                              className="min-h-[78px] w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
-                            />
-                          </div>
+      {/* Mobile order: image then privacy */}
+      <div className="block lg:hidden">
+        <PrayerPrivacyCard />
+      </div>
+    </div>
 
-                          <button
-                            type="button"
-                            disabled={prayerPoints.length === 1}
-                            onClick={() => removePrayerPoint(point.id)}
-                            className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
-                              prayerPoints.length === 1
-                                ? "cursor-not-allowed bg-[#ebe7ea] text-[#b4a9b0] dark:bg-[#221c23] dark:text-[#4a424c]"
-                                : "bg-[#f8e6ea] text-[#9b4355] hover:bg-[#f1d8de] dark:bg-[#331b22] dark:text-[#ffbcc8]"
-                            }`}
-                          >
-                            <Icon
-                              icon="solar:trash-bin-trash-linear"
-                              className="h-5 w-5"
-                            />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={addPrayerPoint}
-                        disabled={prayerPoints.length >= 10}
-                        className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all ${
-                          prayerPoints.length >= 10
-                            ? "cursor-not-allowed bg-[#ebe7ea] text-[#b4a9b0] dark:bg-[#221c23] dark:text-[#4a424c]"
-                            : "bg-[#f2d7f8] text-[#705b77] hover:scale-[1.02] dark:bg-[#2a1b2d] dark:text-[#e5bbd2]"
-                        }`}
-                      >
-                        <Icon icon="solar:add-circle-bold" className="h-5 w-5" />
-                        <span>Add Another Prayer</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="h-px bg-[#f0e7eb] dark:bg-white/5" />
-
-                  <div>
-                    <label className="block text-[12px] font-bold uppercase tracking-[0.22em] text-[#7d516b] dark:text-[#d8bedf]">
-                      Contact Details
-                    </label>
-
-                    <div className="mt-5 grid gap-5 md:grid-cols-2">
-                      <input
-                        value={prayerFirstName}
-                        onChange={(e) => setPrayerFirstName(e.target.value)}
-                        placeholder="First Name (Optional)"
-                        className="w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
-                      />
-
-                      <input
-                        type="email"
-                        value={prayerEmail}
-                        onChange={(e) => setPrayerEmail(e.target.value)}
-                        placeholder="Email Address"
-                        className="w-full rounded-[18px] border border-transparent bg-[#f6f2f5] px-5 py-4 text-base text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <label className="flex items-start gap-4 rounded-[20px] p-1 text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">
-                    <input
-                      type="checkbox"
-                      checked={prayerConsent}
-                      onChange={(e) => setPrayerConsent(e.target.checked)}
-                      className="mt-1 h-5 w-5 rounded border-[#caa9b7] text-[#310f26] focus:ring-[#7d516b] dark:border-[#6c5773] dark:bg-[#120d13]"
-                    />
-                    <span>
-                      I understand my prayer will be shared with the intercession team anonymously. I consent to receiving a follow-up email if necessary.
-                    </span>
-                  </label>
-
-                  <div className="flex flex-col gap-4 sm:flex-row">
-                    <button
-                      type="submit"
-                      disabled={prayerDisabled}
-                      className={`inline-flex w-full items-center justify-center rounded-full px-7 py-5 text-lg font-bold ${gradientButtonClass(
-                        prayerDisabled
-                      )}`}
-                    >
-                      {submitting ? "Submitting Prayer..." : "Submit My Prayer"}
-                    </button>
-
-                    <Link
-                      href="/prayer-jar"
-                      className="inline-flex items-center justify-center rounded-full bg-[#ebe7ea] px-7 py-5 text-sm font-bold text-[#2c1324] transition-colors hover:bg-[#e2dde1] dark:bg-[#251d26] dark:text-[#fcf8fb]"
-                    >
-                      Back
-                    </Link>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+    {/* Desktop only form */}
+    <div className="hidden lg:block lg:col-span-8">
+      <PrayerFormCard
+        handlePrayerSubmit={handlePrayerSubmit}
+        prayerPoints={prayerPoints}
+        updatePrayerPoint={updatePrayerPoint}
+        removePrayerPoint={removePrayerPoint}
+        addPrayerPoint={addPrayerPoint}
+        prayerFirstName={prayerFirstName}
+        setPrayerFirstName={setPrayerFirstName}
+        prayerEmail={prayerEmail}
+        setPrayerEmail={setPrayerEmail}
+        prayerConsent={prayerConsent}
+        setPrayerConsent={setPrayerConsent}
+        prayerDisabled={prayerDisabled}
+        submitting={submitting}
+      />
+    </div>
+  </div>
+</div>
         </>
       ) : (
         <>

@@ -78,11 +78,11 @@ export default function PrayerJarHomePage() {
 
           <div className="grid gap-8 md:grid-cols-2">
             <HomeCard
-              title="Prayer Points"
-              description="Submit your prayer points anonymously and let our community stand in the gap for you."
+              title="Prayer Requests"
+              description="Submit your prayer requests anonymously and let our community stand in the gap for you."
               cta="Begin Prayer"
               icon="solar:stars-bold"
-              image="/images/prayer-points.webp"
+              image="/images/prayer-jar.png"
               href="/prayer-jar/prayer"
             />
             <HomeCard
