@@ -43,7 +43,7 @@ export async function POST(request: Request) {
 
       <a
         href="https://www.tiktok.com/@_herpursuit?lang=en"
-        style="display: block; text-decoration: none; background: #f2d7f8; color: #310f26; padding: 14px 18px; border-radius: 999px; font-weight: 700; text-align: center;"
+        style="display: block; text-decoration: none; background: #f2d7f8; color: #310f26; margin-top:10px; padding: 14px 18px; border-radius: 999px; font-weight: 700; text-align: center;"
       >
         Follow Us on TikTok
       </a>
