@@ -55,7 +55,7 @@ export default function EbookAccessPage() {
       </div>
 
       <footer className="mt-16 border-t border-[#efe6ec] py-8 text-center text-[16px] italic text-[#8b8187] dark:border-[#211a21] dark:text-[#aa9daa]">
-        © 2024 Her Pursuit Ministry. All rights reserved.
+        © 2026 Her Pursuit Ministry. All rights reserved.
       </footer>
     </main>
   );
