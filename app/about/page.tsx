@@ -38,7 +38,7 @@ const timeline = [
   {
     year: "2024",
     title: "Quiet Carrying",
-    text: "The vision was still being carried, refined, and held before God. This page frames the season carefully without claiming activity the PDF does not explicitly state.",
+    text: "The vision was still being carried, refined, and held before God. This page frames the season carefully.",
   },
   {
     year: "2025",
@@ -287,9 +287,10 @@ export default function AboutPage() {
               2023 to 2026
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[#5f5459] dark:text-[#cabecf]">
-              This timeline stays disciplined. It reflects what your PDF supports
-              and avoids pretending there was more public activity than you
-              actually documented.
+              This timeline highlights our progress from 2023 to 2026, showing the
+  journey, growth, and key steps that have shaped the ministry over time.
+  It captures what has been built, nurtured, and steadily carried forward
+  across these years with intention and faithfulness.
             </p>
           </div>
 
@@ -386,12 +387,12 @@ export default function AboutPage() {
 
             <div className="mt-7 space-y-5 text-[16px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
               <p>
-                The PDF presents Siz Let’s Pray as a virtual meeting space using
+                 Siz Let’s Pray is a virtual meeting space using
                 Google Meet and TikTok, supported by WhatsApp community access
                 and digital prayer resources.
               </p>
               <p>
-                It also lays out a prayer rhythm with reading Scripture,
+                We also a prayer rhythm with reading Scripture,
                 thanksgiving, guided prayer points, prayer jar requests, and
                 benediction. That structure is what makes the ministry feel
                 intentional instead of random.
@@ -574,10 +575,9 @@ export default function AboutPage() {
               the journey moving
             </h2>
             <p className="mt-6 max-w-[560px] text-[16px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
-              The PDF clearly shows two strong ministry extensions: the ebook and
-              the prayer jar. That matters because it proves the platform is not
-              just inspirational branding. It is becoming an actual pathway for
-              prayer, reflection, and community participation.
+                Ebooks and
+                the prayer jar. This resoucers are to enable her to be equiped in every season using her sword and on her knees.
+                Thus resouces are not just add-ons. They are part of the communitys core expression and spiritual support system.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
