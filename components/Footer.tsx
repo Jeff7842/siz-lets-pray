@@ -54,7 +54,7 @@ export default function Footer() {
               Resources
             </h4>
             <ul className="mt-5 space-y-4 text-sm text-[#6c5773] dark:text-[#cbb9d0]">
-              <li><Link href="/prayer-jar">Prayer Jar</Link></li>
+              <li><Link href="/prayer-jar">Her Prayer Jar</Link></li>
               <li><Link href="/ebook">Ebook Library</Link></li>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Service</Link></li>

@@ -51,7 +51,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
-  { href: "/prayer-jar", label: "Prayer Jar" },
+  { href: "/prayer-jar", label: "Her Prayer Jar" },
 ];
 
 function isActivePath(pathname: string, href: string) {

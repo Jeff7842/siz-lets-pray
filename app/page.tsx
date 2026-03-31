@@ -81,7 +81,7 @@ export default function HomePage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <PrimaryButton>
-                <span className="mr-4">Join the Fellowship</span>
+                <span className="mr-4"><Link href='/fellowship'>Join the Fellowship</Link></span>
                 <Icon icon="solar:arrow-right-linear" className="h-4 w-4" />
               </PrimaryButton>
               <SecondaryButton 
