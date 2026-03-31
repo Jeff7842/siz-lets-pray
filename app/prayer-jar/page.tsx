@@ -27,7 +27,9 @@ function HomeCard({
       className="group relative min-h-[420px] overflow-hidden rounded-[30px] border border-[#e7dde2] bg-[#f4eef2] text-left shadow-[0_12px_34px_rgba(28,27,29,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_48px_rgba(49,15,38,0.12)] dark:border-white/5 dark:bg-[#171217]"
     >
       <div className="absolute inset-0">
-        <Image src={image} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+        <Image src={image} alt={title} fill
+        sizes="100vh"
+        className="object-cover transition-transform duration-700 group-hover:scale-110" />
       </div>
 
       <div

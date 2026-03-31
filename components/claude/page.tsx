@@ -120,6 +120,7 @@ export default function Home() {
                   src={IMAGES.hero}
                   alt="Community Fellowship — women gathered in prayer"
                   fill
+                  sizes="100vh"
                   className="object-cover"
                   priority
                 />
@@ -149,6 +150,7 @@ export default function Home() {
                       src={IMAGES.prayerMoment}
                       alt="Hands holding a journal in prayer"
                       fill
+                      sizes="100vh"
                       className="object-cover"
                     />
                   </div>
@@ -159,6 +161,7 @@ export default function Home() {
                       src={IMAGES.sisterhood}
                       alt="Two women laughing in a field at golden hour"
                       fill
+                      sizes="100vh"
                       className="object-cover"
                     />
                   </div>
@@ -284,6 +287,7 @@ export default function Home() {
                       src={IMAGES.growth}
                       alt="Sunrise over soft mountains"
                       fill
+                      sizes="100vh"
                       className="object-cover"
                     />
                   </div>
@@ -457,6 +461,7 @@ export default function Home() {
                   src={IMAGES.sisterhood}
                   alt="Women in a study group laughing with open bibles"
                   fill
+                  sizes="100vh"
                   className="object-cover"
                 />
               </div>

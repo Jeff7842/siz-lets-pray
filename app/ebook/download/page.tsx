@@ -90,7 +90,7 @@ if (!token) {
                   </Link>
                 </div>
                 <div className="relative h-[240px]  rounded-[20px] md:w-[240px]">
-                  <Image src="/logos/icon-lilac1000.png" alt="Community" fill sizes="240px" className="object-cover" />
+                  <Image src="/logos/icon-lilac1000.png" alt="Community" fill sizes="200px" className="object-cover" />
                 </div>
               </div>
 

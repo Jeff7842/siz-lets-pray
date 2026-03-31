@@ -82,6 +82,7 @@ function PrayerImageCard() {
         src="/images/screen.png"
         alt="Prayer reflection"
         fill
+        sizes="100vh"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(49,15,38,0.02)_0%,rgba(49,15,38,0.82)_100%)]" />
@@ -284,6 +285,7 @@ function TestimonySidePanel() {
           src="/images/screen-2.png"
           alt="Testimony story"
           fill
+          sizes="100vh"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(49,15,38,0.02)_0%,rgba(49,15,38,0.82)_100%)]" />
