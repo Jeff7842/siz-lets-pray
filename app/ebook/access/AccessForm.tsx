@@ -50,7 +50,7 @@ export default function AccessForm() {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           placeholder="Evelyn Grace"
-          className="w-full rounded-[14px] border border-transparent bg-[#f2eef2] px-5 py-4 text-lg text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-white dark:placeholder:text-[#8f8392]"
+          className="w-full rounded-[14px] border border-transparent bg-[#f2eef2] px-5 py-4 text-lg text-[#1c1b1d] outline-none transition-all duration-300 placeholder:text-[#9b9196] focus:border-[#d8bedf] focus:bg-white dark:bg-[#201921] dark:text-black dark:placeholder:text-[#8f8392]"
           required
         />
       </div>
