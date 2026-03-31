@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL!,
+      from: process.env.RESEND_FROM_WELCOME_EMAIL!,
       to: email,
       subject: "Welcome to the Fellowship",
       html: `
