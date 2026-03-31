@@ -8,7 +8,7 @@ import { Icon } from "@iconify/react";
 
 type ContactSubject =
   | "Prayer Request"
-  | "Ministry Partnership"
+  | "Community Partnership"
   | "Speaking Inquiry"
   | "General Encouragement"
   | "Other";
@@ -22,7 +22,7 @@ type ToastState = {
 
 const SUBJECTS: ContactSubject[] = [
   "Prayer Request",
-  "Ministry Partnership",
+  "Community Partnership",
   "Speaking Inquiry",
   "General Encouragement",
   "Other",
@@ -262,7 +262,7 @@ export default function ContactPage() {
 
               <p className="mt-8 max-w-[560px] text-[17px] leading-8 text-[#5f5459] dark:text-[#cabecf]">
                 Whether you’re an individual seeking prayer, a church looking to
-                partner, or a ministry with a shared vision, we welcome you with
+                partner, or a community with a shared vision, we welcome you with
                 open arms. Let’s walk this path of faith together.
               </p>
 
@@ -391,7 +391,7 @@ export default function ContactPage() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-[#7d516b] dark:text-[#d8bedf]"
                 />
                 <p className="max-w-[520px] italic leading-7">
-                  This is a safe, respectful, and ministry-centered space. Your
+                  This is a safe, respectful, and community-centered space. Your
                   messages are handled with the utmost care and confidentiality
                   by our team.
                 </p>
@@ -428,7 +428,7 @@ export default function ContactPage() {
           <div className="rounded-[28px] bg-[#f6f2f5] p-8 dark:bg-[#181218]">
             <Icon icon="solar:users-group-rounded-bold" className="h-8 w-8 text-[#7d516b] dark:text-[#d8bedf]" />
             <h3 className="mt-6 text-[20px] font-semibold text-[#2c1324] dark:text-[#fcf8fb]">
-              Ministries
+              Community
             </h3>
             <p className="mt-3 max-w-[255px] text-sm leading-7 text-[#5f5459] dark:text-[#cabecf]">
               Let’s combine our resources to empower more women through the

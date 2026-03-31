@@ -3,9 +3,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const OWNER_EMAIL = process.env.CONTACT_OWNER_EMAIL || "hello@sizletspray.com";
+const OWNER_EMAIL = process.env.CONTACT_OWNER_EMAIL || "herpursuit19@gmail.com";
 const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "Siz Lets Pray <noreply@sizletspray.com>";
+  process.env.RESEND_FROM_CONTACT_EMAIL || "Siz Lets Pray <noreply@sizletspray.com>";
 
 function escapeHtml(value: string) {
   return value
@@ -94,7 +94,7 @@ export async function POST(req: Request) {
               </div>
 
               <p style="font-size:14px;color:#6c5773;margin-top:24px;">
-                This is a safe, respectful, and ministry-centered space. We appreciate you trusting us with your message.
+                This is a safe, respectful, and community-centered space. We appreciate you trusting us with your message.
               </p>
             </div>
           </div>

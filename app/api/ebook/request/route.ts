@@ -119,8 +119,10 @@ export async function POST(request: Request) {
 
     console.log("RESEND RESPONSE:", resendResponse);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if ((resendResponse as any)?.error) {
       throw new Error(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         `Resend failed: ${JSON.stringify((resendResponse as any).error)}`
       );
     }

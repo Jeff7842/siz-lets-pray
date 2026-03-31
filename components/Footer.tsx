@@ -43,7 +43,7 @@ export default function Footer() {
             </h4>
             <ul className="mt-5 space-y-4 text-sm text-[#6c5773] dark:text-[#cbb9d0]">
               <li><Link href="/mission">Mission</Link></li>
-              <li><Link href="/ministry">Ministry</Link></li>
+              <li><Link href="/community">Community</Link></li>
               <li><Link href="/empowerment">Empowerment</Link></li>
               <li><Link href="/gospel">Gospel</Link></li>
             </ul>

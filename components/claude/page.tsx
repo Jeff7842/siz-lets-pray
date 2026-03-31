@@ -586,7 +586,7 @@ export default function Home() {
                   transition-all duration-300
                 "
               >
-                Join the Ministry
+                Join the Community
               </a>
               <a
                 href="#ebook"

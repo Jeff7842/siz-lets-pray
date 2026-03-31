@@ -479,7 +479,7 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button className="rounded-full bg-[#2c1324] px-7 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-[#471f39] dark:bg-[#f2d7f8] dark:text-[#2c1324] dark:hover:bg-[#e7c5ef]">
-              Join the Ministry
+              Join the Community
             </button>
             <button className="rounded-full border border-[#7d516b] px-7 py-3 text-sm font-bold text-[#7d516b] transition-all duration-300 hover:bg-[#f2d7f8] dark:border-[#d8bedf] dark:text-[#e5bbd2] dark:hover:bg-[#2a1b2d]">
               Download Free Ebook
